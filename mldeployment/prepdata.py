@@ -7,10 +7,10 @@ from torchvision import transforms
 from torch.utils.data import Dataset, DataLoader
 
 
-NUM_CLASSES = 10
-INPUT_SHAPE = (28, 28, 1)
+NUM_CLASSES = 4
+INPUT_SHAPE = (128, 128, 3)
 NUM_EPOCHS = 1
-image_dir = "./images/"
+image_dir = "/home/christian/Desktop/Programs/Python/AI/Deployment/BentoML/mldeployment/images/"
 BATCH_SIZE = 4
 
 
@@ -46,4 +46,4 @@ def prepare_data() -> Tuple[
     custom_dataset = CustomImageDataset(root_dir=image_dir, transform=data_transform)
     dataloader = DataLoader(custom_dataset, batch_size=BATCH_SIZE, shuffle=False)
 
-    return train_images, train_labels, test_images, test_labels
+    return dataloader
