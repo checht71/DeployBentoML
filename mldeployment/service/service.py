@@ -8,7 +8,7 @@ from bentoml.io import NumpyNdarray
 from torchvision.transforms import v2
 import torch
 
-BENTO_MODEL_TAG = "torch_model_86:26bscybtekyarrdv"
+BENTO_MODEL_TAG = "your tag here"
 
 bento_model = bentoml.pytorch.get(BENTO_MODEL_TAG)
 classifier_runner = bento_model.to_runner()
