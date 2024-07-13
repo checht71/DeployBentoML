@@ -10,7 +10,7 @@ from torch.utils.data import Dataset, DataLoader
 NUM_CLASSES = 4
 INPUT_SHAPE = (128, 128, 3)
 NUM_EPOCHS = 1
-image_dir = "/home/christian/Desktop/Programs/Python/AI/Deployment/BentoML/mldeployment/images/"
+image_dir = "your directory here"
 BATCH_SIZE = 4
 
 
