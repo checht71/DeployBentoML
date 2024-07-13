@@ -21,7 +21,7 @@ transforms = v2.Compose([
 
 
 def load_single_image():
-    image = Image.open("/home/christian/Desktop/Programs/Python/AI/Deployment/BentoML/mldeployment/images/20237-6_01163.jpg")
+    image = Image.open("YOUR IMAGE HERE")
     trans_image= np.array(transforms(image))
     inputs = np.expand_dims(trans_image, axis=0)
 
