@@ -9,8 +9,8 @@ import torch
 
 BATCH_SIZE = 2
 
-SERVICE_URL = "http://localhost:3000/classify"
-
+#SERVICE_URL = "20.246.200.250"
+SERVICE_URL = "https://pmodel.czf2fzcjh7bdcafa.eastus.azurecontainer.io:3000"
 
 transforms = v2.Compose([
     v2.Resize(size=(224, 224)),
@@ -33,21 +33,22 @@ def make_request_to_bento_service(
     service_url: str, input_array
 ) -> str:
     serialized_input_data = json.dumps(input_array.tolist())
+    print("Creating response")
     response = requests.post(
         service_url,
         data=serialized_input_data,
         headers={"content-type": "application/json"}
     )
+    print("posted. Returning response")
     return response.text
 
 
 def main():
-    #input_data, expected_output = sample_random_mnist_data_point()
+    print("starting")
     input_data = load_single_image()
-    #print(np.shape(input_data))
+    print("data colected. sending...")
     prediction = make_request_to_bento_service(SERVICE_URL, input_data)
     print(f"Prediction: {prediction}")
-    #print(f"Expected output: {expected_output}")
 
 
 if __name__ == "__main__":
